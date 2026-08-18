@@ -1,0 +1,57 @@
+.footer {
+  background: var(--primary);
+  color: var(--white);
+  padding: 28px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.footer__brand-name {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.footer__tagline {
+  font-size: 0.78rem;
+  opacity: 0.75;
+}
+
+.footer__divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.footer__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer__contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--white);
+  text-decoration: none;
+  opacity: 0.9;
+  transition: var(--transition);
+}
+
+.footer__contact-item:hover {
+  opacity: 1;
+}
+
+.footer__copy {
+  font-size: 0.7rem;
+  opacity: 0.5;
+  margin-top: 4px;
+}

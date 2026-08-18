@@ -1,0 +1,138 @@
+.ol-page {
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── HEADER ── */
+.ol-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.ol-header__left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-dark);
+}
+
+.ol-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+}
+
+.ol-badge-info {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--white);
+  border: 1.5px solid var(--stroke);
+  border-radius: var(--radius-full);
+  padding: 5px 12px;
+}
+
+/* ── TABLE WRAP ── */
+.ol-table-wrap {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.ol-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ol-thead {
+  background: var(--bg-gray);
+  border-bottom: 1.5px solid var(--stroke);
+}
+
+.ol-th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.ol-row {
+  border-bottom: 1px solid var(--stroke);
+  transition: background 0.15s ease;
+}
+
+.ol-row:last-child {
+  border-bottom: none;
+}
+
+.ol-row:hover {
+  background: #F9FAFB;
+}
+
+.ol-td {
+  padding: 14px 16px;
+  font-size: 0.875rem;
+  color: var(--text-dark);
+  vertical-align: middle;
+}
+
+/* ── CELLS ── */
+.ol-order-id {
+  font-family: monospace;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.ol-customer {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: 500;
+}
+
+.ol-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ol-date {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.ol-amount {
+  font-weight: 700;
+}
+
+.ol-status {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
