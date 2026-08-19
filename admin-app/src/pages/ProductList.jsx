@@ -1,3 +1,4 @@
+import { BASE_URL } from '../api/api.js';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -5,7 +6,6 @@ import { Pencil, Trash2, Plus, Package } from 'lucide-react';
 import { useAdminAuth } from '../context/AdminAuthContext';
 import './ProductList.css';
 
-const BASE_URL = 'http://localhost:5000/api';
 
 const ProductList = () => {
   const { adminToken } = useAdminAuth();

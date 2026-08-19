@@ -1,3 +1,4 @@
+import { BASE_URL } from '../api/api.js';
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
@@ -5,7 +6,6 @@ import { ArrowLeft, Upload, ImageIcon, Save } from 'lucide-react';
 import { useAdminAuth } from '../context/AdminAuthContext';
 import './ProductEdit.css';
 
-const BASE_URL = 'http://localhost:5000/api';
 
 const CATEGORIES = [
   'சரும பராமரிப்பு',

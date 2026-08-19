@@ -1,9 +1,9 @@
 import { createContext, useContext, useState } from 'react';
+import { BASE_URL } from '../api/api.js';
 import axios from 'axios';
 
 const AdminAuthContext = createContext(null);
 
-const BASE_URL = 'http://localhost:5000/api';
 
 export const AdminAuthProvider = ({ children }) => {
   const [adminUser, setAdminUser] = useState(() => {

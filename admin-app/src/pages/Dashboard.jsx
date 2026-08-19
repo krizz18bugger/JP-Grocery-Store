@@ -1,9 +1,9 @@
+import { BASE_URL } from '../api/api.js';
 import { useState, useEffect } from 'react';
 import { Package, ShoppingCart, Users, TrendingUp, ArrowUpRight } from 'lucide-react';
 import axios from 'axios';
 import './Dashboard.css';
 
-const BASE_URL = 'http://localhost:5000/api';
 
 const KPI_BASE = [
   {

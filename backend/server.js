@@ -12,7 +12,7 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors()); // Accept requests from any origin for now
+app.use(cors({ origin: process.env.CLIENT_URL || '*' }));
 app.use(express.json()); // Parse incoming JSON requests
 
 // Basic route to test the server
