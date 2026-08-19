@@ -1,9 +1,6 @@
 import Review from '../models/Review.js';
 import Product from '../models/Product.js';
 
-// @desc    Create new review
-// @route   POST /api/reviews/:productId
-// @access  Private
 export const createReview = async (req, res) => {
   const { rating, comment } = req.body;
   const productId = req.params.productId;
@@ -13,10 +10,7 @@ export const createReview = async (req, res) => {
     const product = await Product.findById(productId);
 
     if (product) {
-      const alreadyReviewed = await Review.findOne({
-        product: productId,
-        user: userId,
-      });
+      const alreadyReviewed = await Review.findOne({ product: productId, user: userId });
 
       if (alreadyReviewed) {
         return res.status(400).json({ message: 'Product already reviewed' });
@@ -39,9 +33,6 @@ export const createReview = async (req, res) => {
   }
 };
 
-// @desc    Get product reviews
-// @route   GET /api/reviews/:productId
-// @access  Public
 export const getProductReviews = async (req, res) => {
   const productId = req.params.productId;
 

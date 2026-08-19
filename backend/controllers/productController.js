@@ -1,11 +1,9 @@
 import Product from '../models/Product.js';
 
-// Fetch all products (supports filtering by category)
 export const getProducts = async (req, res) => {
   try {
     const { category } = req.query;
     const filter = category ? { category } : {};
-    
     const products = await Product.find(filter);
     res.json(products);
   } catch (error) {
@@ -13,7 +11,6 @@ export const getProducts = async (req, res) => {
   }
 };
 
-// Fetch single product by ID
 export const getProductById = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
@@ -27,7 +24,6 @@ export const getProductById = async (req, res) => {
   }
 };
 
-// Create a new product
 export const createProduct = async (req, res) => {
   try {
     const product = new Product(req.body);
@@ -38,7 +34,6 @@ export const createProduct = async (req, res) => {
   }
 };
 
-// Update an existing product
 export const updateProduct = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
@@ -61,7 +56,6 @@ export const updateProduct = async (req, res) => {
   }
 };
 
-// Delete a product by ID
 export const deleteProduct = async (req, res) => {
   try {
     const product = await Product.findByIdAndDelete(req.params.id);

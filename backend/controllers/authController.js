@@ -1,14 +1,12 @@
 import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
 
-// Generate JWT Helper
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: '30d',
   });
 };
 
-// Register a new user
 export const registerUser = async (req, res) => {
   const { name, email, password, role = 'customer', phone } = req.body;
 
@@ -19,13 +17,7 @@ export const registerUser = async (req, res) => {
       return res.status(400).json({ message: 'User already exists' });
     }
 
-    const user = await User.create({
-      name,
-      email,
-      password,
-      role,
-      phone,
-    });
+    const user = await User.create({ name, email, password, role, phone });
 
     if (user) {
       res.status(201).json({
@@ -44,7 +36,6 @@ export const registerUser = async (req, res) => {
   }
 };
 
-// Auth user & get token (Login)
 export const loginUser = async (req, res) => {
   const { email, password } = req.body;
 
@@ -68,7 +59,6 @@ export const loginUser = async (req, res) => {
   }
 };
 
-// Get user profile
 export const getUserProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user._id);

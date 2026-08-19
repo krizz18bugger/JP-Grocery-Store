@@ -11,44 +11,39 @@ dotenv.config();
 
 const app = express();
 
-// Middleware
-app.use(cors({ origin: process.env.CLIENT_URL || '*' }));
-app.use(express.json()); // Parse incoming JSON requests
+const ALLOWED_ORIGINS = [process.env.CLIENT_URL, process.env.ADMIN_URL].filter(Boolean);
 
-// Basic route to test the server
+app.use(cors({ origin: ALLOWED_ORIGINS.length ? ALLOWED_ORIGINS : '*' }));
+app.use(express.json());
+
 app.get('/', (req, res) => {
   res.send('JP Integrated Farm API is running...');
 });
 
-// Keep-awake ping route
 app.get('/api/health', (req, res) => {
   res.status(200).json({ message: 'Server is awake!' });
 });
 
-// Product Routes
 app.use('/api/products', productRoutes);
-
-// Auth Routes
 app.use('/api/auth', authRoutes);
-
-// Upload Routes
 app.use('/api/upload', uploadRoutes);
-
-// Review Routes
 app.use('/api/reviews', reviewRoutes);
 
-// Database Connection & Server Initialization
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI;
 
 mongoose.connect(MONGO_URI)
   .then(() => {
     console.log('✅ Connected to MongoDB successfully.');
-    app.listen(PORT, () => {
-      console.log(`🚀 Server is running on port ${PORT}`);
-    });
+    if (process.env.NODE_ENV !== 'test') {
+      app.listen(PORT, () => {
+        console.log(`🚀 Server is running on port ${PORT}`);
+      });
+    }
   })
   .catch((error) => {
     console.error('❌ Error connecting to MongoDB:', error.message);
-    process.exit(1); // Exit process with failure
+    process.exit(1);
   });
+
+export default app;
