@@ -13,7 +13,7 @@ const app = express();
 
 const ALLOWED_ORIGINS = [process.env.CLIENT_URL, process.env.ADMIN_URL].filter(Boolean);
 
-app.use(cors({ origin: ALLOWED_ORIGINS.length ? ALLOWED_ORIGINS : '*' }));
+app.use(cors({ origin: ALLOWED_ORIGINS.length ? ALLOWED_ORIGINS : '*', credentials: true }));
 app.use(express.json());
 
 app.get('/', (req, res) => {
